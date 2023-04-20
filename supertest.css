@@ -1,3 +1,306 @@
-.Test {
-  color: red;
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Wrapper for the lefthand navigation */
+#leftNavContainer {
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: rgb(246,246,254);
+    height: 100vh;
+    min-height: 100%;
+    color: black;
+    width: 270px;
+    padding-bottom: 120%;
+    margin-bottom: -120%;
+}
+
+/* Wrapper for the container with the hamburger navigation menu (used on narrow screen like a phone) */
+#burgerNavContainer {
+    background-color: rgb(246,246,254);
+    padding: 10px;
+}
+
+/* The links inside the hamburger navigation menu */
+#burgerNavLinksContainer{
+    display: none;
+}
+#burgerLinksUl {
+    width: 160px;
+    float: right;
+}
+
+/* The hamburger itself */
+#burgerButton{
+    height: 40px;
+    width: 60px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+/* Each link inside both lefthand and hamburger navigation menu */
+.NavLinksContainer a {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+}
+.NavLinksContainer a:hover {
+    color: rgb(70,60,60);
+    text-decoration: underline;
+}
+
+/* Wrapper around the main body */
+#mainBodyContainer {
+    padding-right: 20px;
+}
+
+/* The heading at the top of the main body, right now the part that says "Dashboard" */
+.DashboardHeader {
+    padding-top: 5px;
+    margin-bottom: 15px;
+}
+
+/* Used in navigation li's, here to override Bootstrap's borders */
+.NoBorder {
+    border: none;
+    background-color: inherit;
+}
+
+/* For dashboard components.  This applies to the graphs, not the
+ * the shorter ones that just display a single number. */
+.ComponentContainer {
+    height: 230px;
+    text-align:center;
+    background-color: white;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+/* Used for dashboard components that are clickable */
+.ClickableComponentContainer {
+    cursor: pointer;
+}
+.ClickableComponentContainer:hover {
+    border: 1px solid darkgray !important;
+    filter: brightness(98%);
+}
+
+/* For dashboard components that are a single number*/
+.ComponentContainerSingle {
+    height: 107.5px;
+}
+.ComponentContainerSingleInner {
+    width: 100%;
+    height: 100%;
+    margin-left: 5px;
+}
+
+/* Wrapper around bar charts, which are inside of a component container. */
+.ChartBarContainer {
+    height: 180px;
+}
+
+/* Title of every dashboard component, except maps */
+.ComponentHeaderTitle {
+    font-size: 22px;
+    font-weight: bold;
+    color: rgb(50,50,50);
+}
+
+/* For subtitles for component containers.  Currently, no components have a subtitle
+ * so this is just a placeholder for now. */
+.ComponentHeaderSubtitle {
+    font-weight: bold;
+    color: rgb(100,100,100);
+    margin-top: -5px;
+    margin-left: 10px;
+}
+
+/* Wrapper for dashboard components that are maps */
+.ComponentContainerMap {
+    height: 300px;
+    position: relative;
+}
+
+/* Heading for maps */
+.MapHeaderTitle {
+    font-size: 22px;
+    font-weight: bold;
+    color: rgb(50,50,50);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: rgba(215, 215, 255, 0.7);
+    border-bottom-left-radius: 5px 5px;
+    border-bottom-right-radius: 5px 5px;
+}
+
+/* Numbers inside dashboard components.  This applies to single number components
+ * and to the number in the upper right of graph components. */
+.ComponentHeaderNumber {
+    font-size: 20px;
+    font-weight: bold;
+    color: dimgray;
+}
+
+/* Wrapper for headings in charts. */
+.ChartHeaderTable{
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+.ChartHeaderTable td {
+    width: 40%;
+    vertical-align: top;
+}
+
+/* For Donut charts.  Currently none of the components use donut charts. */
+.DonutChartContainer {
+    height: 80%;
+}
+
+/* The icons in the navigation menus */
+.NavIcon {
+    color: black;
+    margin-right: 6px;
+    margin-bottom: 4px;
+}
+
+/* Used for the time selection at the top of the dashboard - the "1W | 1M | 3M | 6M | 1Y" */
+.TimeHeadings {
+    padding-bottom: 15px;
+}
+
+/* Used in the Users and Files screens where the user can select Active/All/Online/etc */
+.UserToggleHeadings {
+    padding-bottom: 15px;
+    font-size: 13px;
+}
+
+/* Used on the timeline at the top of the dashboard and the Active/All/Online/etc toggles
+ * at the top of the Users and Files screens. */
+.LinkSelect {
+    cursor: pointer;
+}
+.LinkSelect:hover {
+    text-decoration: underline;
+    color: blue;
+}
+.LinkSelectSelected {
+    color: darkblue;
+    text-decoration: underline;
+    cursor: default;
+}
+
+/* Search boxes at the top of the Users and Files screens and popups */
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.ListRow td {
+    padding: 5px 15px 5px 15px;
+    border-bottom: 1px solid rgb(150,150,150);
+}
+
+.ClickableRow {
+    cursor: pointer;
+}
+
+.ClickableRow:hover {
+    background-color: rgb(220,220,220);
+}
+
+/* The green dot that indicates that a user is currently online */
+.UserOnlineDot {
+    position: absolute;
+    bottom: 3px;
+    right: -2px;
+    height: 9px;
+    width: 9px;
+    background-color: rgb(0, 200, 0);
+    border-radius: 50%;
+    border: 1px solid white;
+}
+.UserOnlineDotLargeIcon {
+    position: absolute;
+    bottom: 7px;
+    right: 0px;
+    height: 12px;
+    width: 12px;
+    background-color: rgb(0, 200, 0);
+    border-radius: 50%;
+    border: 1px solid white;
+}
+
+/* Heading inside modal dialogs (popups) */
+.ModalHeading {
+    font-weight: bold;
+    font-size: 20px;
+}
+.ModalSubheading {
+    font-weight: bold;
+    font-size: 15px;
+    color: rgb(150,150,150);
+}
+.ModalListHeading {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Styling for things like trailing parens (e.g. "(last viewed Dec 29)" */
+.SecondaryListInfo { 
+    color: rgb(100,100,100);
+    font-style: italic;
+    padding-left: 8px;
+}
+
+.Tooltip1 > .tooltip-inner {
+    max-width: 100%;
+}
+
+.ListTable th {
+    border-bottom: 1px solid rgb(150,150,150);
+    white-space: nowrap;
+    padding: 5px 15px 5px 15px;
+    text-align: center;
+}
+
+.WithTooltip {
+    cursor: default;
+}
+
+#UserDetailsOuterDiv {
+    position: relative;
+}
+
+.ListTableHeader th {
+    border-bottom: 1px solid black;
+    text-align: center;
+    background: rgb(231, 231, 231);
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.StrikeTr td{
+    text-decoration: line-through;
+    color: darkgray;
+    font-style: italic;
 }
